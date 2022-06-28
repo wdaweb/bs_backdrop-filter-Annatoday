@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bs5/css/bootstrap.css">
+  <style>
+    /* 記得從最小尺寸開始做 */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background: url(./background-image.jpg) fixed no-repeat center/cover;
+    }
+    .border-radius-up{
+      border-radius: 20px 20px 0 0;
+    }
+    .border-radius-down{
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* 濾鏡 */
+    .graysacle {
+      backdrop-filter: grayscale(1);
+    }
+    .brightness {
+      backdrop-filter: brightness(1.5);
+    }
+    .blur {
+      backdrop-filter: blur(5px);
+    }
+    .contrast {
+      backdrop-filter: contrast(0.8);
+    }
+    .invert {
+      backdrop-filter: invert(0.7);
+    }
+    .opacity {
+      backdrop-filter: opacity(0.4);
+    }
+    .sepia {
+      backdrop-filter: sepia(0.4);
+    }
+    .saturate {
+      backdrop-filter: saturate(1.8);
+    }
+    .hue-rotate {
+      backdrop-filter: hue-rotate(120deg);
+    }
+
+    /* 斷點練習992:lg */
+    @media (min-width:992px){
+      /* 100vh太大會出現Y軸 */
+      /* 高度都%，只設body也會抓不到 */
+      html,
+      body{
+        height: 100%;
+      }
+      /* 均寬(flex-shrink:0，可一直延伸) */
+      .row > div{
+        width: 450px;
+      }
+      .border-radius-up{
+        border-radius: 20px 0 0 20px;
+      }
+      .border-radius-down{
+        border-radius: 0 20px 20px 0;
+    }
+    }
+  </style>
+</head>
+<body>
+  <!-- col-12占滿，或不寫 -->
+  <!-- 內容超出視窗，row不要設固定寬度(包不住內容物)，mp會失效 -->
+  <!-- 記得container高度要給，否則打不開 -->
+  <!-- 測試用 border border-danger、border border-warning -->
+  <div class="container-fluid d-flex justify-content-center h-100 d-lg-flex justify-content-lg-start align-items-lg-center">
+    <div class="row p-5 m-5 flex-lg-nowrap h-75 text-nowrap text-white">
+      <div class="box border p-5 col-lg d-flex justify-content-center align-items-center border-radius-up fs-1 fw-bold">SCROLL filter</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center graysacle">backdrop-filter: none</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center brightness">backdrop-filter: grayscale(1)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center blur">backdrop-filter: brightness(1.5)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center contrast">backdrop-filter: blur(5px)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center invert">backdrop-filter: contrast(0.8)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center opacity">backdrop-filter: invert(0.7)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center sepia">backdrop-filter: opacity(0.4)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center saturate">backdrop-filter: sepia(0.4)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center brightness">backdrop-filter: saturate(1.8)</div>
+      <div class="border p-5 fs-4 col-lg d-flex justify-content-center align-items-center hue-rotate border-radius-down">backdrop-filter: hue-rotate(120deg)</div>
+    </div>
+  </div>
+
+  <script src="./bs5/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
